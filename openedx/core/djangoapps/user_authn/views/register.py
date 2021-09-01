@@ -61,6 +61,7 @@ from openedx.core.djangoapps.user_authn.views.registration_form import (
     RegistrationFormFactory,
     get_registration_extension_form
 )
+from openedx.core.djangoapps.user_authn.tasks import check_pwned_password
 from openedx.core.djangoapps.user_authn.toggles import is_require_third_party_auth_enabled
 from common.djangoapps.student.helpers import (
     AccountValidationError,
@@ -278,6 +279,8 @@ def create_account_with_params(request, params):
     # and is not yet an active user.
     if new_user is not None:
         AUDIT_LOG.info(f"Login success on new account creation - {new_user.username}")
+        is_internal_user = new_user.email.split('@')[1] == 'edx.org'
+        check_pwned_password.delay(new_user.id, request.POST.get('password'), is_internal_user)
 
     return new_user
 
