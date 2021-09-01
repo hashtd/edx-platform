@@ -9,7 +9,6 @@ on:
 
 jobs:
   run_pylint:
-    name: Quality Pylint
     runs-on: ubuntu-20.04
     strategy:
       matrix:
@@ -27,6 +26,8 @@ jobs:
           - module-name: cms
             path: "cms"
 
+
+    name: pylint ${{ matrix.module-name }}
     steps:
 
     - uses: actions/checkout@v2
