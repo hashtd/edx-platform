@@ -2071,9 +2071,9 @@ def financial_assistance_form(request):
                 'placeholder': '',
                 'name': 'mktg-permission',
                 'label': _(
-                    'I allow edX to use the information provided in this application '
-                    '(except for financial information) for edX marketing purposes.'
-                ),
+                    'I allow {platform_name} to use the information provided in this application '
+                    '(except for financial information) for {platform_name} marketing purposes.'
+                ).format(platform_name=settings.PLATFORM_NAME),
                 'defaultValue': '',
                 'type': 'checkbox',
                 'required': False,
