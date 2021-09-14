@@ -146,7 +146,7 @@ def _register_course_home_messages(request, course, user_access, course_start_da
                 Text(_(
                     'You must be enrolled in the course to see course content. '
                     'Please contact your degree administrator or {platform_name} Support if you have questions.'
-                ).format(platform_name=settings.PLATFORM_NAME)),
+                )).format(platform_name=settings.PLATFORM_NAME),
                 title=title
             )
         elif not course.invitation_only:

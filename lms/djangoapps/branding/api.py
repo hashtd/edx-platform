@@ -358,7 +358,8 @@ def _footer_business_links(language=settings.LANGUAGE_CODE):
 
     if language == settings.LANGUAGE_CODE:
         links.append(('affiliates', (marketing_link("AFFILIATES"), _("Affiliates"))))
-        links.append(('openedx', (_footer_openedx_link()["url"], "Open edX"))) # do not translate "Open edX"
+        # Not wrapping "Open edX" in _() because it should never be translated
+        links.append(('openedx', (_footer_openedx_link()["url"], "Open edX")))
         links.append(('careers', (marketing_link("CAREERS"), _("Careers"))))
         links.append(("news", (marketing_link("NEWS"), _("News"))))
 
