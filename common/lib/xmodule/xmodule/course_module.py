@@ -481,8 +481,9 @@ class CourseFields:  # lint-amnesty, pylint: disable=missing-class-docstring
             # Translators: Custom Courses for edX (CCX) is an edX feature for re-using course content. CCX Coach is
             # a role created by a course Instructor to enable a person (the "Coach") to manage the custom course for
             # his students.
-            "Allow course instructors to assign CCX Coach roles, and allow coaches to manage Custom Courses on {platform_name}."
-            " When false, Custom Courses cannot be created, but existing Custom Courses will be preserved."
+            "Allow course instructors to assign CCX Coach roles, and allow coaches to manage "
+            "Custom Courses on {platform_name}. When false, Custom Courses cannot be created, "
+            "but existing Custom Courses will be preserved."
         ).format(platform_name=settings.PLATFORM_NAME),
         default=False,
         scope=Scope.settings

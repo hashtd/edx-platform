@@ -706,8 +706,10 @@ class CourseTabView(EdxFragmentView):
             if not CourseEnrollment.is_enrolled(request.user, course.id) and not allow_anonymous:
                 # Only show enroll button if course is open for enrollment.
                 if CourseTabView.course_open_for_learner_enrollment(course):
-                    enroll_message = _('You must be enrolled in the course to see course content. \
-                            {enroll_link_start}Enroll now{enroll_link_end}.')
+                    enroll_message = _(
+                        'You must be enrolled in the course to see course content. '
+                        '{enroll_link_start}Enroll now{enroll_link_end}.'
+                    )
                     PageLevelMessages.register_warning_message(
                         request,
                         Text(enroll_message).format(
